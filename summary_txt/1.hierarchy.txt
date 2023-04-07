@@ -1,0 +1,24 @@
+]
+| -- object domain -- a big collection of multiple spaces/nodes, can i see domains as singular customers id ?
+|
+\____| -- object space -- singular entity for a domain ( which has multiple spaces )
+     |                    and it has been built in this way to reduce the complexity of execution ( without joining all spaces together )
+     |                    and the root path of a node in this domain is the object space
+     |
+     \____| -- object node -- it reminds me the mandatory way to create classes in java
+          |                   in c++ it is not mandatory: to create folders for each class
+          |                   their idea of the nodes for me come +- from npm/node/nodejs
+          |
+          |    | Library: Available classes/functions/templates for anyone but more statics like c++ ( to instantiate ? )
+          |    |          It seems that to use these libraries we are forced to instantiate objects ( classes )
+          |    |          It reminds me Java and Python, they have more the idea to compile the libraries before to invoke it ( other nodes or little tools in c )
+          \____|
+               |
+               | Repository: Wanted classes: specific for this node ( space/domain )
+               |             can here a class contain other classes ? I suppose Yes.
+
+to see better in future for curiosity:
+
+   objects side -- workflow
+   hacks security roles and privileges
+   web rest interfaces -- workflow

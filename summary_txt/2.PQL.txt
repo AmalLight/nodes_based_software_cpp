@@ -1,0 +1,73 @@
+variable   :  @ $
+this/self == .
+set/list   :  {} a\b\c\d
+
+attribute           :                                     objectx.attribute_i_want_to_read
+change an attribute : objectx.attribute_i_want_to_change =           value_i_want_to_write
+
+end of line : ;
+
+# ------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------
+
+lambda query search for objects : $search(<SearchSelector>[,<ObjRoots>])
+                        example : $local($v): $search($templates of Adapter:.Type=="XML").$id,$displayName,Type;
+
+lambda Relational queries :
+
+  $allChildren   : returns all child objects of an object. It can be used with a search filter.
+  $allParents    : returns all parent objects of an object and can be used with a search filter.
+  $allAttributes : returns all objects linked as attributes to an object.
+
+  example for all above : @adapter\$AllChildren(GeneralContainer:)\$AllChildren(Task:).$internalname,$displayname,$id;
+
+lambda Tree queries :
+
+   $tree
+   $parentTree
+   $treeStructured
+   $parentTreeStructured
+
+   example for all above : @Tasks = @adapter\$tree(SUBPQL:).$internalname,$displayname,$id,$treeLevel;
+
+# ------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------------------------------
+
+:::::::::::::::::::::::::::::: IF :
+
+If @weekDay == 7 then
+    return "It is a Sunday";
+elseif @day == 6 then
+    return "It is a Saturday";
+else
+    return "It is a weekday.";
+EndIf
+
+:::::::::::::::::::::::::::::: ForEach loop :
+
+@array = {1, 2, 3};
+forEach @item in (@array)
+    @sum += @item;
+next
+    return @sum;
+
+:::::::::::::::::::::::::::::: While loop :
+
+while @i > 7
+    @i--;
+next
+
+:::::::::::::::::::::::::::::: Select/case block :
+
+@weekDay = dayOfWeek(date());
+select (@weekDay)
+    case 7:
+        // fallthrough to next case
+    case 6:
+        return "Have a nice Weekend!";
+        break;
+    Default:
+        return "Today is a workday.";
+        break;
+endSelect
+
